@@ -3,10 +3,13 @@ package com.daofab.springbootrestapi.service;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.daofab.springbootrestapi.model.Parent;
 import com.daofab.springbootrestapi.model.ParentList;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service
 public class ParentService implements IParentService {
 
     private String _mFileName = "Parent.json";
