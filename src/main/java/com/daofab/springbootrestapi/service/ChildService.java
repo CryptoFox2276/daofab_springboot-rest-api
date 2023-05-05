@@ -1,6 +1,7 @@
 package com.daofab.springbootrestapi.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -37,6 +38,20 @@ public class ChildService implements IChildService {
         }
 
         return child;
+    }
+
+    @Override
+    public List<Child> findsByParentId(int pId) {
+        ArrayList<Child> list = new ArrayList<Child>();
+
+        List<Child> childs = this.findAll();
+
+        for( int index = 0 ; index < childs.size() ; index ++ ) {
+            if(childs.get(index).getParentId() == pId) {
+                list.add(childs.get(index));
+            }
+        }
+        return list;
     }
     
     public static <T>T json2Object(String fileName, Class<T> classType) {

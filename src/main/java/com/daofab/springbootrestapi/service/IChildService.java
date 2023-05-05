@@ -9,4 +9,6 @@ public interface IChildService {
     List<Child> findAll();
 
     Child findById(int id);
+
+    List<Child> findsByParentId(int pId);
 }

@@ -1,5 +1,6 @@
 package com.daofab.springbootrestapi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,13 @@ public class ChildController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @RequestMapping("/parent/{id}")
+    public List<Child> findByParentId(@PathVariable(value="id") int pId) {
+        
+        List<Child> list = childService.findsByParentId(pId);
+        
+        return list;
     }
 }
